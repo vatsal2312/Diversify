@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
-import '@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol';
-import '@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol';
-import '@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol';
+import './OwnableUpgradeable.sol';
+import './Initializable.sol';
+import './SafeERC20.sol';
 
 /**
  * Upgradable Contract that provides ETC and ERC20 token retrieval authorised by the owner
