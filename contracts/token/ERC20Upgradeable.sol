@@ -2,10 +2,10 @@
 
 pragma solidity ^0.8.0;
 
-import "./IERC20Upgradeable.sol";
-import "./IERC20MetadataUpgradeable.sol";
-import "./ContextUpgradeable.sol";
-import "./Initializable.sol";
+import './IERC20Upgradeable.sol';
+import './IERC20MetadataUpgradeable.sol';
+import './ContextUpgradeable.sol';
+import './Initializable.sol';
 
 /**
  * @dev Implementation of the {IERC20} interface.
@@ -160,7 +160,7 @@ contract ERC20Upgradeable is Initializable, ContextUpgradeable, IERC20Upgradeabl
         _transfer(sender, recipient, amount);
 
         uint256 currentAllowance = _allowances[sender][_msgSender()];
-        require(currentAllowance >= amount, "ERC20: transfer amount exceeds allowance");
+        require(currentAllowance >= amount, 'ERC20: transfer amount exceeds allowance');
         unchecked {
             _approve(sender, _msgSender(), currentAllowance - amount);
         }
@@ -201,7 +201,7 @@ contract ERC20Upgradeable is Initializable, ContextUpgradeable, IERC20Upgradeabl
      */
     function decreaseAllowance(address spender, uint256 subtractedValue) public virtual returns (bool) {
         uint256 currentAllowance = _allowances[_msgSender()][spender];
-        require(currentAllowance >= subtractedValue, "ERC20: decreased allowance below zero");
+        require(currentAllowance >= subtractedValue, 'ERC20: decreased allowance below zero');
         unchecked {
             _approve(_msgSender(), spender, currentAllowance - subtractedValue);
         }
@@ -228,13 +228,13 @@ contract ERC20Upgradeable is Initializable, ContextUpgradeable, IERC20Upgradeabl
         address recipient,
         uint256 amount
     ) internal virtual {
-        require(sender != address(0), "ERC20: transfer from the zero address");
-        require(recipient != address(0), "ERC20: transfer to the zero address");
+        require(sender != address(0), 'ERC20: transfer from the zero address');
+        require(recipient != address(0), 'ERC20: transfer to the zero address');
 
         _beforeTokenTransfer(sender, recipient, amount);
 
         uint256 senderBalance = _balances[sender];
-        require(senderBalance >= amount, "ERC20: transfer amount exceeds balance");
+        require(senderBalance >= amount, 'ERC20: transfer amount exceeds balance');
         unchecked {
             _balances[sender] = senderBalance - amount;
         }
@@ -255,7 +255,7 @@ contract ERC20Upgradeable is Initializable, ContextUpgradeable, IERC20Upgradeabl
      * - `account` cannot be the zero address.
      */
     function _mint(address account, uint256 amount) internal virtual {
-        require(account != address(0), "ERC20: mint to the zero address");
+        require(account != address(0), 'ERC20: mint to the zero address');
 
         _beforeTokenTransfer(address(0), account, amount);
 
@@ -278,12 +278,12 @@ contract ERC20Upgradeable is Initializable, ContextUpgradeable, IERC20Upgradeabl
      * - `account` must have at least `amount` tokens.
      */
     function _burn(address account, uint256 amount) internal virtual {
-        require(account != address(0), "ERC20: burn from the zero address");
+        require(account != address(0), 'ERC20: burn from the zero address');
 
         _beforeTokenTransfer(account, address(0), amount);
 
         uint256 accountBalance = _balances[account];
-        require(accountBalance >= amount, "ERC20: burn amount exceeds balance");
+        require(accountBalance >= amount, 'ERC20: burn amount exceeds balance');
         unchecked {
             _balances[account] = accountBalance - amount;
         }
@@ -312,8 +312,8 @@ contract ERC20Upgradeable is Initializable, ContextUpgradeable, IERC20Upgradeabl
         address spender,
         uint256 amount
     ) internal virtual {
-        require(owner != address(0), "ERC20: approve from the zero address");
-        require(spender != address(0), "ERC20: approve to the zero address");
+        require(owner != address(0), 'ERC20: approve from the zero address');
+        require(spender != address(0), 'ERC20: approve to the zero address');
 
         _allowances[owner][spender] = amount;
         emit Approval(owner, spender, amount);
@@ -358,5 +358,6 @@ contract ERC20Upgradeable is Initializable, ContextUpgradeable, IERC20Upgradeabl
         address to,
         uint256 amount
     ) internal virtual {}
+
     uint256[45] private __gap;
 }
