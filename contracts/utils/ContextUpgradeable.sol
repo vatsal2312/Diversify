@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
-import "../proxy/utils/Initializable.sol";
+import '../proxy/utils/Initializable.sol';
 
 /**
  * @dev Provides information about the current execution context, including the
@@ -18,8 +18,8 @@ abstract contract ContextUpgradeable is Initializable {
         __Context_init_unchained();
     }
 
-    function __Context_init_unchained() internal initializer {
-    }
+    function __Context_init_unchained() internal initializer {}
+
     function _msgSender() internal view virtual returns (address) {
         return msg.sender;
     }
@@ -27,5 +27,6 @@ abstract contract ContextUpgradeable is Initializable {
     function _msgData() internal view virtual returns (bytes calldata) {
         return msg.data;
     }
+
     uint256[50] private __gap;
 }
