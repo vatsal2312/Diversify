@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.0;
 import 'hardhat/console.sol';
-import '@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol';
-import '@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol';
-import '@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol';
+import './ERC20Upgradeable.sol';
+import './OwnableUpgradeable.sol';
+import './Initializable.sol';
 import '../interfaces/IERC20UpgradeableBurnable.sol';
 
 /**
