@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
-import '@openzeppelin/contracts/utils/Context.sol';
-import '@openzeppelin/contracts/access/Ownable.sol';
-import '@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol';
+import './Context.sol';
+import './Ownable.sol';
+import './SafeERC20.sol';
 
 /**
  * Contract that provides ETH and  ERC20 token retriever authorised by the owner
